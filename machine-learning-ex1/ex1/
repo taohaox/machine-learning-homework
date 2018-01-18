@@ -1,0 +1,38 @@
+Normalizing Features ...
+mu =
+
+   2.0007e+03   0.0000e+00
+
+sigma =
+
+   3626      0
+
+mu =
+
+   2000.6809      3.1702
+
+sigma =
+
+   3626      4
+
+Running gradient descent ...
+Theta computed from gradient descent: 
+ 334302.063993 
+ 82063.900182 
+ 34705.251476 
+
+mu =
+
+   0.0000e+00   2.0007e+03   3.1702e+00
+
+sigma =
+
+      1   3626      4
+
+predictParams =
+
+   1.000000  -0.096713  -0.042553
+
+Predicted price of a 1650 sq-ft, 3 br house (using gradient descent):
+ $324888.609824
+Program paused. Press enter to continue.
