@@ -12,13 +12,18 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+X1 = []
+X2 = []
+for i = 1:length(y)
+    if y(i)==1
+        X1 = [X1;X(i,1:2)];
+    else
+        X2 = [X2;X(i,1:2)];
+    end
 
-
-
-
-
-
-
+end
+plot(X1(:,1),X1(:,2),'k+','MarkerSize',10);
+plot(X2(:,1),X2(:,2),'ko','MarkerSize',10);
 
 % =========================================================================
 
