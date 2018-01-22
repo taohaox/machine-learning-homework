@@ -8,7 +8,7 @@ function plotDecisionBoundary(theta, X, y)
 %      intercept.
 %   2) MxN, N>3 matrix, where the first column is all-ones
 
-% Plot Data
+% Plot Datas
 plotData(X(:,2:3), y);
 hold on
 
@@ -19,7 +19,7 @@ if size(X, 2) <= 3
     % Calculate the decision boundary line
     plot_y = (-1./theta(3)).*(theta(2).*plot_x + theta(1));
 
-    % Plot, and adjust axes for better viewing
+    % Plot, and adjust axes for better viewingsu
     plot(plot_x, plot_y)
     
     % Legend, specific for the exercise
@@ -41,7 +41,7 @@ else
 
     % Plot z = 0
     % Notice you need to specify the range [0, 0]
-    contour(u, v, z, [0, 0], 'LineWidth', 2)
+    contour(u, v, z, [0, 0], 'LineWidth', 2);
 end
 hold off
 
