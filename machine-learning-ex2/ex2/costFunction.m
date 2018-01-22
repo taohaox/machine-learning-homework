@@ -6,8 +6,6 @@ function [J, grad] = costFunction(theta, X, y)
 
 % Initialize some useful values
 m = length(y); % number of training examples
-a = 0.01;
-count = 500;
 % You need to return the following variables correctly 
 J = 0;
 grad = zeros(size(theta));
