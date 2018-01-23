@@ -29,10 +29,10 @@ X = [ones(m, 1) X];
 %       are in rows, then, you can use max(A, [], 2) to obtain the max 
 %       for each row.
 %       
-all_p = X*all_theta';
-fprintf('size(all_p):%f\n',all_p);
-    
-
+% 验证直接使用X*all_theta' 而 不使用sigmoid（）》0.5 可以提高识别率   
+% sigmoid（）》0.5 表示这个数字的正确率在 0.5以上  
+% 而 我们只需要在1-10 中选择概率最大的即可 （哪怕最大的概率是0.1 也是可以选择的）
+[v p] = max(X*all_theta',[],2); 
 
 
 

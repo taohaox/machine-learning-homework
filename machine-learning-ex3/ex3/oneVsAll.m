@@ -48,14 +48,14 @@ X = [ones(m, 1) X];
 %         fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), ...
 %                 initial_theta, options);
 %
+
+options = optimset('GradObj', 'on', 'MaxIter', 50);
 initial_theta = zeros(n+1,1);
-for i = 0:num_labels
-    options = optimset('GradObj', 'on', 'MaxIter', 50);
-    [theta] = ...
-         fmincg (@(t)(lrCostFunction(t, X, (y == i), lambda)), ...
-                 initial_theta, options);
-    all_theta(i,:) = theta';
+for i = 1:num_labels
+      %训练顺序按 1,2,3,4,5,6,7，8,9,10 来  so all_theta(1) 表示1的训练参数 以此类推
+      all_theta(i,:) = fmincg (@(t)(lrCostFunction(t, X, (y == i), lambda)),initial_theta, options);
 end
+
 
 
 
