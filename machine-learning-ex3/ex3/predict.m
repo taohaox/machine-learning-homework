@@ -20,6 +20,11 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+X = [ones(m,1) X]; %让X变为 5000*401  因为 Theate1 是25*401
+A1 = sigmoid(X*Theta1');
+A1 = [ones(m,1) A1];
+% A2 = sigmoid(A1*Theta2')
+[v p] = max(A1*Theta2',[],2) % 得到 5000 * 10   取每一行10个中最大的一个  v是值 p是下标
 
 
 
