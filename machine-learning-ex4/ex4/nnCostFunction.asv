@@ -65,8 +65,8 @@ Theta2_grad = zeros(size(Theta2));
 % theta1 = 25*401   theta2 = 10*26
 % a1 5000* 401
 a1 = [ones(m,1) X];
-% a2 5000* 26
 a2 = sigmoid(a1*Theta1');
+% a2 5000* 26
 a2 = [ones(m,1) a2];
 % a3 5000* 10
 a3 = sigmoid(a2*Theta2');
@@ -85,11 +85,10 @@ for i = 1:m
     for k = 1:num_labels
       delta3(k) = a3(i,k) - (y(i)==k); % 10*1
     end
-    delta2 = Theta2(:,2:end)' * delta3 .* sigmoidGradient(a1(i,:)*Theta1')'; % 25*1   
-    Theta2_grad = Theta2_grad + delta3*a2(i,:); %10*1 * 1 * 26 = 10 *26  => theta2
-    Theta1_grad = Theta1_grad + delta2*a1(i,:); % 25*1 * 1*401 = 25*401  => theta1
+    delta2 = Theta2(:,2:end)' * delta3 .* sigmoidGradient(X(i,:)*Theta1(:,2:end)')'; % 25*1
+    Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + delta3*a2(i,2:end); %10*1 * 1 * 25 = 10 *25  => theta2
+    Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + delta2*a1(i,2:end); % 25*1 * 1*400 = 25*400  => theta1
 end
-
 Theta1_grad = Theta1_grad/m;
 Theta2_grad = Theta2_grad/m;
 Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda/m*Theta1(:, 2:end);
